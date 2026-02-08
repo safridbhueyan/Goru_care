@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:goru_care/controller/home_controller.dart';
 import 'package:goru_care/view/widgets/custom_container.dart';
+import 'package:provider/provider.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -11,28 +13,43 @@ class HomeScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Color(0xffeba834),
 
-        title: Text(
-          "গরু কেয়ার",
+        title: Consumer<HomeController>(
+          builder: (context, controller, _) {
+            return Text(
+              "গরু কেয়ার",
 
-          style: TextStyle(fontSize: 24, color: Color(0xff0d0d0c)),
+              style: TextStyle(fontSize: 24, color: Color(0xff0d0d0c)),
+            );
+          },
         ),
         centerTitle: true,
-        leading: IconButton(
-          icon: const Icon(Icons.refresh_rounded, color: Color(0xff661304)),
-          onPressed: () {},
-          tooltip: "রিসেট",
+        leading: Consumer<HomeController>(
+          builder: (context, controller, _) {
+            return IconButton(
+              icon: const Icon(Icons.refresh_rounded, color: Color(0xff661304)),
+              onPressed: () {},
+              tooltip: "রিসেট",
+            );
+          },
         ),
         actions: [
-          TextButton(
-            onPressed: () {},
-            child: Text(
-              "বাংলা",
-              style: TextStyle(
-                fontSize: 12,
-                color: Color(0xff661304),
-                fontWeight: FontWeight.w700,
-              ),
-            ),
+          Consumer<HomeController>(
+            builder: (context, controller, _) {
+              final isEnglish = controller.isEnglish;
+              return TextButton(
+                onPressed: () {
+                  controller.toggle();
+                },
+                child: Text(
+                  isEnglish == true ? "ENG" : "বাংলা",
+                  style: TextStyle(
+                    fontSize: 12,
+                    color: Color(0xff661304),
+                    fontWeight: FontWeight.w700,
+                  ),
+                ),
+              );
+            },
           ),
         ],
       ),
@@ -41,6 +58,48 @@ class HomeScreen extends StatelessWidget {
         children: [
           // container
           Padding(padding: EdgeInsets.all(25.0), child: CustomContainer()),
+
+          //text
+          Text(
+            "Select an image to check the Goru health Status",
+            style: TextStyle(
+              fontSize: 16,
+              color: Colors.grey[500],
+              fontWeight: FontWeight.w400,
+            ),
+          ),
+
+          TextButton(
+            onPressed: () {},
+            child: Container(
+              padding: EdgeInsets.only(
+                left: 20,
+                right: 20,
+                top: 10,
+                bottom: 10,
+              ),
+              decoration: BoxDecoration(
+                color: Color(0xff321254),
+                borderRadius: BorderRadius.circular(12),
+              ),
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Icon(Icons.camera_alt, color: Color(0xFFFFFFFF)),
+                  SizedBox(width: 8),
+                  Text(
+                    "Camera",
+
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: Colors.white,
+                      fontWeight: FontWeight.w400,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
         ],
       ),
     );

@@ -68,37 +68,78 @@ class HomeScreen extends StatelessWidget {
               fontWeight: FontWeight.w400,
             ),
           ),
-
-          TextButton(
-            onPressed: () {},
-            child: Container(
-              padding: EdgeInsets.only(
-                left: 20,
-                right: 20,
-                top: 10,
-                bottom: 10,
-              ),
-              decoration: BoxDecoration(
-                color: Color(0xff321254),
-                borderRadius: BorderRadius.circular(12),
-              ),
-              child: Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Icon(Icons.camera_alt, color: Color(0xFFFFFFFF)),
-                  SizedBox(width: 8),
-                  Text(
-                    "Camera",
-
-                    style: TextStyle(
-                      fontSize: 16,
-                      color: Colors.white,
-                      fontWeight: FontWeight.w400,
-                    ),
+          SizedBox(height: 20),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              TextButton(
+                onPressed: () {},
+                child: Container(
+                  padding: EdgeInsets.only(
+                    left: 40,
+                    right: 40,
+                    top: 12,
+                    bottom: 12,
                   ),
-                ],
+                  decoration: BoxDecoration(
+                    color: Color(0xff321254),
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Icon(Icons.camera_alt, color: Color(0xFFFFFFFF)),
+                      SizedBox(width: 8),
+                      Text(
+                        "Camera",
+
+                        style: TextStyle(
+                          fontSize: 16,
+                          color: Colors.white,
+                          fontWeight: FontWeight.w400,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
               ),
-            ),
+
+              SizedBox(width: 5),
+              TextButton(
+                onPressed: () {},
+                child: Container(
+                  padding: EdgeInsets.only(
+                    left: 40,
+                    right: 40,
+                    top: 12,
+                    bottom: 12,
+                  ),
+                  decoration: BoxDecoration(
+                    color: Color(0xffcc1ad9),
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Icon(
+                        Icons.photo_library_rounded,
+                        color: Color(0xFFFFFFFF),
+                      ),
+                      SizedBox(width: 8),
+                      Text(
+                        "Gallery",
+
+                        style: TextStyle(
+                          fontSize: 16,
+                          color: Colors.white,
+                          fontWeight: FontWeight.w400,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ],
           ),
         ],
       ),

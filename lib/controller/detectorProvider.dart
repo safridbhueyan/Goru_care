@@ -24,8 +24,8 @@ class DetectionProvider extends ChangeNotifier {
       modelPath: 'assets/models/best_float32.tflite',
       labels: 'assets/models/labels.txt',
       modelVersion: "yolov8",
-      numThreads: 4,
-      useGpu: false,
+      numThreads: 6,
+      useGpu: true,
     );
 
     // 2. Setup Camera at Low Res
@@ -33,7 +33,7 @@ class DetectionProvider extends ChangeNotifier {
     if (cameras.isNotEmpty) {
       controller = CameraController(
         cameras[0],
-        ResolutionPreset.low,
+        ResolutionPreset.veryHigh,
         enableAudio: false,
       );
       await controller!.initialize();
@@ -60,7 +60,7 @@ class DetectionProvider extends ChangeNotifier {
         imageHeight: image.height,
         imageWidth: image.width,
         iouThreshold: 0.4,
-        confThreshold: 0.4,
+        confThreshold: 0.6,
         classThreshold: 0.5,
       );
 

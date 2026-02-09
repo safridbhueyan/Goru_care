@@ -128,7 +128,6 @@ class HomeScreen extends StatelessWidget {
                       SizedBox(width: 8),
                       Text(
                         "Gallery",
-
                         style: TextStyle(
                           fontSize: 16,
                           color: Colors.white,
@@ -141,6 +140,9 @@ class HomeScreen extends StatelessWidget {
               ),
             ],
           ),
+          SizedBox(height: 20),
+          // divider
+          Divider(thickness: 2, indent: 20, endIndent: 20),
         ],
       ),
     );

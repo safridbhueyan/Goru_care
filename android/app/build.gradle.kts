@@ -4,7 +4,6 @@ plugins {
     id("dev.flutter.flutter-gradle-plugin")
 }
 
-// CRITICAL: This block resolves the Duplicate class org.tensorflow.lite error
 configurations.all {
     exclude(group = "org.tensorflow", module = "tensorflow-lite")
     exclude(group = "org.tensorflow", module = "tensorflow-lite-api")
@@ -13,7 +12,7 @@ configurations.all {
 
 android {
     namespace = "com.example.goru_care"
-    compileSdk = flutter.compileSdkVersion
+    compileSdk = 36 // Support for Android 15/16KB page sizes
     ndkVersion = flutter.ndkVersion
 
     compileOptions {
@@ -33,6 +32,12 @@ android {
         targetSdk = flutter.targetSdkVersion
         versionCode = flutter.versionCode
         versionName = flutter.versionName
+    }
+
+    @Suppress("DEPRECATION")
+    aaptOptions {
+        noCompress("tflite")
+        noCompress("lite")
     }
 
     buildTypes {

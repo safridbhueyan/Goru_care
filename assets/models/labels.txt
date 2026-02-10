@@ -1,7 +1,5 @@
-niloy
-kishu
-mitul
-hafsa
-pritom
-sam
-safrid
+0 kishu
+1 niloy
+2 mitul
+3 hafsa
+4 sam

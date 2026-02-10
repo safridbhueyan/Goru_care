@@ -143,6 +143,15 @@ class HomeScreen extends StatelessWidget {
           SizedBox(height: 20),
           // divider
           Divider(thickness: 2, indent: 20, endIndent: 20),
+          Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(16),
+
+              color: Color(0xff567576),
+            ),
+
+            child: Text("About us"),
+          ),
         ],
       ),
     );

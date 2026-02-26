@@ -4,15 +4,10 @@ plugins {
     id("dev.flutter.flutter-gradle-plugin")
 }
 
-configurations.all {
-    exclude(group = "org.tensorflow", module = "tensorflow-lite")
-    exclude(group = "org.tensorflow", module = "tensorflow-lite-api")
-    exclude(group = "org.tensorflow", module = "tensorflow-lite-gpu")
-}
-
 android {
     namespace = "com.example.goru_care"
-    compileSdk = 36 // Support for Android 15/16KB page sizes
+    // Bumping to 36 as required by your camera and YOLO plugins
+    compileSdk = 36 
     ndkVersion = flutter.ndkVersion
 
     compileOptions {
@@ -20,30 +15,16 @@ android {
         targetCompatibility = JavaVersion.VERSION_17
     }
 
-    kotlin {
-        compilerOptions {
-            jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_17)
-        }
+    kotlinOptions {
+        jvmTarget = "17"
     }
 
     defaultConfig {
         applicationId = "com.example.goru_care"
-        minSdk = flutter.minSdkVersion 
-        targetSdk = flutter.targetSdkVersion
+        minSdk = 24 
+        targetSdk = 36
         versionCode = flutter.versionCode
         versionName = flutter.versionName
-    }
-
-    @Suppress("DEPRECATION")
-    aaptOptions {
-        noCompress("tflite")
-        noCompress("lite")
-    }
-
-    buildTypes {
-        release {
-            signingConfig = signingConfigs.getByName("debug")
-        }
     }
 
     androidResources {

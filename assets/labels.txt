@@ -1,0 +1,7 @@
+0 HDPE Plastic
+1 Multi-layer Plastic
+2 PET Bottle
+3 Single-Use-Plastic
+4 Single-layer Plastic
+5 Squeeze-Tube
+6 UHT-Box

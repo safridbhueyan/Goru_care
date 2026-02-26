@@ -149,8 +149,10 @@ class HomeScreen extends StatelessWidget {
 
               color: Color(0xff567576),
             ),
+            child: Column(children: [
 
-            child: Text("About us"),
+              ],
+            ),
           ),
         ],
       ),
